@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sample Login with local JSON</title>
+    <script type="text/javascript" src="users.json"></script>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Solve XHR favicon.ico -->
+    <link rel="icon" href="data:;base64,=">
+    <link href="https://fast.fonts.net/cssapi/660adfd1-e117-4dbc-b0d3-1c2bddba5de6.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="login-container">
+
+        <section class="login-section">
+            <div class="login-form-container">
+                <form id="loginFormId" action="" method="post">
+                    <h3 class="heading">Sign In</h3>
+
+                    <div class="container">
+                        <input id="usernameId" class="ripple" type="text" placeholder="Username" name="uname" required>
+
+                        <input id="passwordId" class="ripple" type="password" placeholder="Password" name="psw" required>
+
+                        <button id="loginButtonId" class="login-btn ripple" type="button">Login</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+<script>
+    // var userData = fetch('./users.json')
+    //     .then(result => result.json())
+    //     .then(console.log);
+
+    var userdata;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "./users.json");
+    xhr.addEventListener('load', processJSON);
+    xhr.send();
+
+    function processJSON(event) {
+        var json = this.responseText;
+        userdata = JSON.parse(json);
+    }
+
+    document.getElementById('loginButtonId').addEventListener('click', function() {
+        if (document.getElementById('usernameId').value !== '' && (document.getElementById('passwordId').value !== '')) {
+            if (validateCredentials(document.getElementById('usernameId').value) === document.getElementById('passwordId').value) {
+                window.location = './upload.html';
+            } else {
+                alert('Incorrect Username or Password!')
+            }
+        } else {
+            alert('Username or Password field left blank.')
+        }
+    });
+
+    function validateCredentials(username) {
+        var users = userdata.users;
+        for (var user of users) {
+            if (user.username === username) return user.password;
+        }
+
+        return "Invalid username";
+    }
+</script>
+
+</html>
