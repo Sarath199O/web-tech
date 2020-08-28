@@ -1,7 +1,7 @@
 # Sample screen loading animation
 
 ## Summary
-Sample screen loading animation when the page is waiting for some respoinse from server
+Sample screen loading animation when the page is waiting for some response from server
 
 ## Requirements
 Simply run a http server if you have python installed in your machine in this folder or run any web server(Apache) that is install in your machine and keep this folder in the web server.
