@@ -15,5 +15,34 @@
 			"name": "England",
 			"id": 4
 		}
+	],
+	"provinces": [{
+			"name": "TamilNadu",
+			"id": 1
+		},
+		{
+			"name": "Kerala",
+			"id": 2
+		},
+		{
+			"name": "Andhra",
+			"id": 3
+		},
+		{
+			"name": "Karnataka",
+			"id": 4
+		},
+		{
+			"name": "Orissa",
+			"id": 5
+		},
+		{
+			"name": "Delhi",
+			"id": 6
+		},
+		{
+			"name": "Mumbai",
+			"id": 7
+		}
 	]
 }
